@@ -12,13 +12,13 @@ function triggerMouseEvent(node, eventType) {
 }
 
 function getChatname(){
-    $("#side > div > div > div").find("._25Ooe > ._1wjpf").each(function(){
-        console.log($(this).text())
-        contacts.push($(this).text());
-        chat_div.push($(this));
+    $('#pane-side>div>div>div>div').each(function(){
+        var a = $(this).find('span._1wjpf');
+
+        console.log($(a).attr('title'));
+        contacts.push($(a).attr('title'));
+        chat_div.push($(a));
     })
-    
-     console.log($("#pane-side > div > div > div"))
 }
 
 function selectContact(name){
@@ -34,9 +34,8 @@ function selectContact(name){
 }
 
 function sendMessage(text){
-    $("#main > footer > div._3oju3 > div._2bXVy > div > div._2S1VP.copyable-text.selectable-text").text(text)
-    input = document.querySelector("#main > footer > div._3oju3 > div._2bXVy > div > div._2S1VP.copyable-text.selectable-text");
+    $('div._3F6QL._2WovP>div._2S1VP').text(text)
+    input = document.querySelector("div._3F6QL._2WovP>div._2S1VP");
     input.dispatchEvent(new Event('input', {bubbles: true}));
-	var button = document.querySelector('#main > footer > div._3oju3 > button');
-	button.click();
+    $('button._35EW6').click()
 }
